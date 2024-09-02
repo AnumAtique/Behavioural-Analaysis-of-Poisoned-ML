@@ -75,14 +75,6 @@ Z_poisoned = knn_poisoned.predict(np.c_[xx.ravel(), yy.ravel()])
 Z_original = Z_original.reshape(xx.shape)
 Z_poisoned = Z_poisoned.reshape(xx.shape)
 
-# Plot decision boundaries
-# plt.figure(figsize=(10, 5))
-# plt.contourf(xx, yy, Z_original, alpha=0.8, cmap=plt.cm.coolwarm, label='Clean Data')
-# plt.contourf(xx, yy, Z_poisoned, cmap=plt.cm.coolwarm, alpha=0.4, label='Poisoned Data (Flipped Labels)')
-# plt.scatter(X[:, 0], X[:, 1], c=y['label'], cmap=plt.cm.coolwarm, s=40)
-# plt.xlabel('Feature 1')
-# plt.legend(loc='best')
-# plt.show()
 mapping = {0: 'benign', 1: 'malignant'}
 
 # Example usage:
@@ -93,8 +85,6 @@ plt.subplot(1, 2, 1)
 plt.contourf(xx, yy, Z_original, alpha=0.8)
 sns.scatterplot(x=X_train[:, 0], y=X_train[:, 1],
 palette=['orange', 'c', 'blue'], hue=value_to_label, alpha=1.0, edgecolor="black")
-# plt.contourf(xx, yy, Z_original, alpha=0.8)
-# plt.scatter(X.iloc[:, 0], X.iloc[:, 1], c=y, edgecolors='k')
 plt.title('kNN Decision Boundaries with Clean Dataset')
 
 # Plot poisoned decision boundaries
@@ -102,7 +92,6 @@ plt.subplot(1, 2, 2)
 plt.contourf(xx, yy, Z_poisoned, alpha=0.8)
 sns.scatterplot(x=X_poisoned[:, 0], y=X_poisoned[:, 1],
 palette=['orange', 'c', 'blue'], hue=value_to_label, alpha=1.0, edgecolor="black")
-# plt.scatter(X_poisoned[:, 0], X_poisoned.iloc[:, 1], c=y_poisoned, edgecolors='k')
 plt.title('kNN Decision Boundaries with \u0394P=15.0% Dataset Poisoning')
 
 plt.show()
