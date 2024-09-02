@@ -18,7 +18,7 @@ import cv2
 import sklearn.model_selection as model_selection
 
 #Load dataset
-botnet_detection_dataset = pd.read_csv('E:/study/label-flipping attack/datasets/Botnet detection dataset.csv')
+botnet_detection_dataset = pd.read_csv('./datasets/Botnet detection dataset.csv')
 botnet_detection_dataset.reset_index(drop=True, inplace=True)
 botnet_detection_dataset.replace('', np.nan, inplace=True)
 botnet_detection_dataset.fillna(0, inplace=True)
